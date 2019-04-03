@@ -27,7 +27,7 @@ class App extends Component {
   }
 
   getCityList = () => {
-    fetch('http://localhost:5000/api/cities')
+    fetch('/api/cities')
     .then(res => res.json())
     .then(res => {
       var cityList = res.map(r => r.city_name);
@@ -40,7 +40,7 @@ class App extends Component {
   };
 
   handleAddCity = () => {
-    fetch('http://localhost:5000/api/cities', {
+    fetch('/api/cities', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({ city: this.state.newCityName })
@@ -53,7 +53,7 @@ class App extends Component {
   };
 
   getWeather = (city) => {
-    fetch(`http://localhost:5000/api/weather/${city}`)
+    fetch(`/api/weather/${city}`)
     .then(res => res.json())
     .then(weather => {
       console.log(weather)
